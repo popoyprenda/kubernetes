@@ -9,7 +9,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'docker build -t popoyprenda/jenkins-nginx:devsecops-web .'
+        sh 'docker build -t popoyprenda/mywebapp-k8:latest .'
       }
     }
     stage('Login') {
@@ -19,13 +19,13 @@ pipeline {
     }
     stage('Push') {
       steps {
-        sh 'docker push popoyprenda/jenkins-nginx:devsecops-web'
+        sh 'docker push popoyprenda/mywebapp-k8:latest'
       }
     }
     stage('Deploy') {
             steps {
               script {
-                   sh "docker run -p 8081:80 -d popoyprenda/jenkins-nginx:devsecops-web"
+                   sh "kubectl apply -f nginx-deployment.yaml"
                 }
               }
             }
