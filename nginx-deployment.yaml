@@ -18,6 +18,6 @@ spec:
       - name: mydockerhub
       containers:
       - name: mywebapp-k8
-        image: mywebapp-k8:latest
+        image: popoyprenda/mywebapp-k8:latest
         ports:
         - containerPort: 80
