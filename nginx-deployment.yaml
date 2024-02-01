@@ -15,7 +15,7 @@ spec:
         app: nginx
     spec:
       imagePullSecrets:
-      -name: mydockerhub
+      - name: mydockerhub
       containers:
       - name: mywebapp-k8
         image: mywebapp-k8:latest
